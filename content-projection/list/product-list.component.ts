@@ -16,7 +16,6 @@ import { Observable } from "rxjs";
 })
 export class ListComponent {
   products$: Observable<Product> = this.productService.products$;
-  p;
   constructor(private productService: ProductsService) {
     productService.load();
   }
