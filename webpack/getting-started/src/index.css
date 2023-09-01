@@ -2,3 +2,12 @@
   text-decoration: underline;
   color: blue;
 }
+
+/* .button {
+  background: yellow;
+} */
+
+/* Apply this style globally */
+:global(.button) {
+  background: yellow;
+}

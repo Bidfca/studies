@@ -10,8 +10,18 @@ module.exports = {
     rules: [
       {
         test: /.css$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            // Enable CSS modules to encapsulate styles.
+            options: { modules: true },
+          },
+        ],
         // Loaders are executed from right to left.
-        use: ["style-loader", "css-loader"],
+        // use: ["style-loader", "css-loader"],
       },
     ],
   },
