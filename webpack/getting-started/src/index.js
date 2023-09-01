@@ -1,5 +1,8 @@
 import _ from "lodash";
 
+// Importing CSS files directly in index.html is no longer necessary. Webpack handles CSS imports.
+import "./index.css";
+
 document.getElementById("button1").addEventListener("click", function () {
   // Note: Webpack creates an IIFE (Immediately Invoked Function Expression), so "buttonClicked" won't be available globally when the button is clicked.
   // function buttonClicked() {
