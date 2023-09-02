@@ -10,7 +10,11 @@ console.log(style);
 
 import "./clearButton";
 
+import logo from "./assets/webpack.png";
+
 const btn1 = document.getElementById("button1");
+const logoEl = document.getElementById("logo");
+
 btn1.addEventListener("click", function () {
   // Note: Webpack creates an IIFE (Immediately Invoked Function Expression), so "buttonClicked" won't be available globally when the button is clicked.
   // function buttonClicked() {
@@ -28,3 +32,5 @@ btn1.addEventListener("click", function () {
 
 // If the style is declared as global, it won't be accessible through the "style" object anymore.
 // btn1.classList.add([style.button]);
+
+logoEl.src = logo;
