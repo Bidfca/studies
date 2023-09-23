@@ -55,4 +55,10 @@ module.exports = {
     }),
     new BundleAnalyzerPlugin({}),
   ],
+  optimization: {
+    // Avoid duplicated dependencies
+    splitChunks: {
+      chunks: "all",
+    },
+  },
 };
