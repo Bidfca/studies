@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -9,7 +10,7 @@ module.exports = {
     courses: "./src/pages/courses.js",
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
   },
@@ -20,11 +21,15 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        // MiniCssExtractPlugin extract CSS into separate files
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        // style-loader inject styles into the DOM
+        // use: ["style-loader", "css-loader"],
       },
       {
         test: /\.s[ac]ss$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        // use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(png|jpeg|jpg|gif)$/,
@@ -53,6 +58,7 @@ module.exports = {
         },
       ],
     }),
+    new MiniCssExtractPlugin(),
     // new BundleAnalyzerPlugin({}),
   ],
   optimization: {
