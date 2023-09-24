@@ -1,6 +1,0 @@
-{
-  "devDependencies": {
-    "glob": "^10.3.6",
-    "purgecss-webpack-plugin": "^5.0.0"
-  }
-}
