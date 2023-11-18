@@ -26,3 +26,8 @@ async function sendTransactionViaExtension(
     return TransactionState.Rejected;
   }
 }
+
+const onMintPosition = useCallback(async () => {
+  setTxState(TransactionState.Sending);
+  setTxState(await mintPosition());
+}, []);
